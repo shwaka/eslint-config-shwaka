@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "eslint": "<version>",
-    "eslint-config-shwaka": "github:shwaka/eslint-config-shwaka#<commitHash>"
+    "eslint-config-shwaka": "github:shwaka/eslint-config-shwaka#v0.1"
+    // or "github:shwaka/eslint-config-shwaka#bb563c9abb6d890060c1b96b4d20c7e0cfb59b60"
   }
 }
 ```
