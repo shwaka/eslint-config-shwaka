@@ -10,13 +10,14 @@
   },
   "devDependencies": {
     "eslint": "<version>",
-    "eslint-config-shwaka": "github:shwaka/eslint-config-shwaka#v0.1"
-    // or "github:shwaka/eslint-config-shwaka#bb563c9abb6d890060c1b96b4d20c7e0cfb59b60"
+    "eslint-config-shwaka": "git+https://github.com/shwaka/eslint-config-shwaka#v0.1"
+    // or "git+https://github.com/shwaka/eslint-config-shwaka#bb563c9abb6d890060c1b96b4d20c7e0cfb59b60"
   }
 }
 ```
 
-commit hash を使うよりは tag をつけた方が良いかも？(要検証)
+- `github:shwaka/eslint-config-shwaka#v0.1` だとsshが使われるので，GitHub Actions とかで失敗する
+- `git+https://github.com/shwaka/eslint-config-shwaka#v0.1` ならhttpsなので大丈夫
 
 ### .eslintrc.js
 ```js
