@@ -1,4 +1,8 @@
-module.exports = {
+// @ts-check
+
+/** @type {import("eslint").Linter.Config} */
+// module.exports = {...} とすると型チェックが何故か働かないので，変数定義を挟む
+const config = {
   "env": {
     "browser": true,
     "es2021": true
@@ -15,6 +19,7 @@ module.exports = {
     "ecmaFeatures": {
       "jsx": true
     },
+    // @ts-expect-error type上では何故か12までしか許容されない(けど実行時は大丈夫っぽい？)
     "ecmaVersion": 13,
     "sourceType": "module",
     "project": ["./tsconfig.json"], // added for @typescript-eslint/strict-boolean-expressions
@@ -43,10 +48,6 @@ module.exports = {
     "quotes": [
       "error",
       "double"
-    ],
-    "semi": [
-      "error",
-      "never"
     ],
     "semi": "off", // use typescript-eslint
     "@typescript-eslint/explicit-function-return-type": [
@@ -86,3 +87,5 @@ module.exports = {
     "import/no-unresolved": 0, // ちゃんと設定できてないせいか大量に出てきてしまう
   }
 }
+
+module.exports = config
