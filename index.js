@@ -48,12 +48,14 @@ module.exports = {
       "error",
       "never"
     ],
+    "semi": "off", // use typescript-eslint
     "@typescript-eslint/explicit-function-return-type": [
       2,
       { "allowExpressions": true }
     ],
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/no-unused-vars": "off", // provided by "unused-imports"
+    "@typescript-eslint/semi": ["error", "never"],
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {
