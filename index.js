@@ -16,7 +16,8 @@ module.exports = {
       "jsx": true
     },
     "ecmaVersion": 13,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": ["./tsconfig.json"], // added for @typescript-eslint/strict-boolean-expressions
   },
   "plugins": [
     "react",
@@ -63,6 +64,13 @@ module.exports = {
           "delimiter": "comma",
           "requireLast": false,
         }
+      }
+    ],
+    "@typescript-eslint/strict-boolean-expressions": [
+      "error",
+      {
+        "allowString": false,
+        "allowNumber": false,
       }
     ],
     "unused-imports/no-unused-imports": "error",
