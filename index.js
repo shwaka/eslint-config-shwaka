@@ -53,6 +53,18 @@ module.exports = {
     ],
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/no-unused-vars": "off", // provided by "unused-imports"
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none",
+        },
+        "singleline": {
+          "delimiter": "comma",
+          "requireLast": false,
+        }
+      }
+    ],
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "warn",
