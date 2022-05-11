@@ -2,7 +2,7 @@
 
 ## 使い方
 ### package.json
-```json
+```js
 {
   "scripts": {
     "eslint": "eslint src --ext .ts,.tsx",
