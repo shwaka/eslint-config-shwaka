@@ -47,7 +47,8 @@ const config = {
     ],
     "quotes": [
       "error",
-      "double"
+      "double",
+      { "avoidEscape": true }
     ],
     "semi": "off", // use typescript-eslint
     "@typescript-eslint/explicit-function-return-type": [
