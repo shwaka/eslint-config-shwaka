@@ -65,3 +65,11 @@ git push --tags
 
 と書かれているけど，セミコロンは書かないことにした．
 セミコロンが必要な言語を普段書かないので，毎回セミコロンを書くのは苦痛．
+
+## その他コメント
+### React.Fragment
+`<>` ではなく `<Fragment>` を使うことにした．
+その判断に至った理由:
+
+- [Fragments – React](https://reactjs.org/docs/fragments.html#keyed-fragments) `key` プロパティが使えるのは `<Fragment>` の方だけ．
+- [<> or <React.Fragment> ?](https://www.reddit.com/r/reactjs/comments/9yy3f4/or_reactfragment/) の議論を見るとどっちでも良さそう
