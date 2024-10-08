@@ -78,7 +78,12 @@ export default tseslint.config(
       "import/named": 0, // Language not found in 'prism-react-renderer'
       "import/no-unresolved": 0, // ちゃんと設定できてないせいか大量に出てきてしまう
       "react/jsx-fragments": ["error", "element"], // <> ではなく <Fragment> を使う
-    }
+    },
+    settings: {
+      react: {
+        version: "detect", // for eslint-plugin-react
+      },
+    },
   }
 )
 
@@ -112,13 +117,6 @@ const config = {
     "@typescript-eslint",
     "unused-imports"
   ],
-  "settings": {
-    "react": {
-      "version": "detect" // for eslint-plugin-react
-    }
-  },
-  "rules": {
-  }
 }
 
 // module.exports = config
