@@ -1,4 +1,18 @@
 // @ts-check
+import js from '@eslint/js'
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+
+export default tseslint.config(
+  js.configs.recommended,
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    rules: {
+      //　ここにルールを追加していきます
+    }
+  }
+)
 
 /** @type {import("eslint").Linter.Config} */
 // module.exports = {...} とすると型チェックが何故か働かないので，変数定義を挟む
@@ -90,4 +104,4 @@ const config = {
   }
 }
 
-module.exports = config
+// module.exports = config
