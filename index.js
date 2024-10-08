@@ -39,7 +39,7 @@ export default tseslint.config(
         "double",
         { "avoidEscape": true }
       ],
-      "semi": "error", // previously used typescript-eslint
+      "semi": ["error", "never"], // previously used typescript-eslint
       "@typescript-eslint/explicit-function-return-type": [
         2,
         { "allowExpressions": true }
