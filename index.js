@@ -5,6 +5,7 @@ import tseslint from 'typescript-eslint'
 import unusedImports from 'eslint-plugin-unused-imports'
 import importPlugin from 'eslint-plugin-import'
 import reactPlugin from 'eslint-plugin-react'
+import stylisticTs from '@stylistic/eslint-plugin-ts'
 
 export default tseslint.config(
   js.configs.recommended,
@@ -23,6 +24,7 @@ export default tseslint.config(
       "unused-imports": unusedImports,
       "import": importPlugin,
       "react": reactPlugin,
+      "@stylistic/ts": stylisticTs,
     },
     rules: {
       "indent": [
@@ -39,26 +41,26 @@ export default tseslint.config(
         "double",
         { "avoidEscape": true }
       ],
-      "semi": ["error", "never"], // previously used typescript-eslint
+      // "semi": ["error", "never"], // use @stylistic/ts
       "@typescript-eslint/explicit-function-return-type": [
         2,
         { "allowExpressions": true }
       ],
       "@typescript-eslint/no-inferrable-types": "off",
       "@typescript-eslint/no-unused-vars": "off", // provided by "unused-imports"
-      // "@typescript-eslint/semi": ["error", "never"], // removed
-      // "@typescript-eslint/member-delimiter-style": [
-      //   "error",
-      //   {
-      //     "multiline": {
-      //       "delimiter": "none",
-      //     },
-      //     "singleline": {
-      //       "delimiter": "comma",
-      //       "requireLast": false,
-      //     }
-      //   }
-      // ],
+      "@stylistic/ts/semi": ["error", "never"],
+      "@stylistic/ts/member-delimiter-style": [
+        "error",
+        {
+          "multiline": {
+            "delimiter": "none",
+          },
+          "singleline": {
+            "delimiter": "comma",
+            "requireLast": false,
+          }
+        }
+      ],
       "@typescript-eslint/strict-boolean-expressions": [
         "error",
         {
