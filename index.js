@@ -5,6 +5,7 @@ import tseslint from 'typescript-eslint'
 import unusedImports from 'eslint-plugin-unused-imports'
 import importPlugin from 'eslint-plugin-import'
 import reactPlugin from 'eslint-plugin-react'
+import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import stylisticTs from '@stylistic/eslint-plugin-ts'
 
 export default tseslint.config(
@@ -78,6 +79,7 @@ export default tseslint.config(
       "import/named": 0, // Language not found in 'prism-react-renderer'
       "import/no-unresolved": 0, // ちゃんと設定できてないせいか大量に出てきてしまう
       "react/jsx-fragments": ["error", "element"], // <> ではなく <Fragment> を使う
+      ...reactHooksPlugin.configs.recommended.rules,
     },
     settings: {
       react: {
