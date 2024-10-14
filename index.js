@@ -8,7 +8,7 @@ import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import stylisticTs from '@stylistic/eslint-plugin-ts'
 
-export default tseslint.config(
+export const eslintConfigShwaka = tseslint.config(
   js.configs.recommended,
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
@@ -88,6 +88,8 @@ export default tseslint.config(
     },
   }
 )
+
+export default eslintConfigShwaka
 
 /** @type {import("eslint").Linter.Config} */
 // module.exports = {...} とすると型チェックが何故か働かないので，変数定義を挟む
