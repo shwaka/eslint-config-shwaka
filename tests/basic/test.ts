@@ -24,3 +24,13 @@ function falsyValue(): void {
   }
   return
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function functionWithExplicitAny(_: any): void {
+  return
+}
+
+// @ts-expect-error こっち (implicit any) は，eslint ではなく tsc がエラーを出す．
+function functionWithImplicitAny(_): void {
+  return
+}
