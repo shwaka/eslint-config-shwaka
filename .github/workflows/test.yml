@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ ".github/workflows/test.yml", "tests/**", "index.js" ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        name: [basic, stylistic, react-vite]
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: volta-cli/action@v3
+    - run: npm ci
+      working-directory: tests/${{ matrix.name }}
+    - run: npm run eslint
+      working-directory: tests/${{ matrix.name }}
