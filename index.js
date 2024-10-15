@@ -8,7 +8,7 @@ import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import stylisticTs from '@stylistic/eslint-plugin-ts'
 
-export const eslintConfigShwaka = tseslint.config(
+export const eslintConfigShwakaBasic = tseslint.config(
   js.configs.recommended,
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
@@ -24,9 +24,6 @@ export const eslintConfigShwaka = tseslint.config(
     plugins: {
       "unused-imports": unusedImports,
       "import": importPlugin,
-      "react": reactPlugin,
-      "react-hooks": reactHooksPlugin,
-      "@stylistic/ts": stylisticTs,
     },
     rules: {
       "indent": [
@@ -50,19 +47,6 @@ export const eslintConfigShwaka = tseslint.config(
       ],
       "@typescript-eslint/no-inferrable-types": "off",
       "@typescript-eslint/no-unused-vars": "off", // provided by "unused-imports"
-      "@stylistic/ts/semi": ["error", "never"],
-      "@stylistic/ts/member-delimiter-style": [
-        "error",
-        {
-          "multiline": {
-            "delimiter": "none",
-          },
-          "singleline": {
-            "delimiter": "comma",
-            "requireLast": false,
-          }
-        }
-      ],
       "@typescript-eslint/strict-boolean-expressions": [
         "error",
         {
@@ -79,6 +63,32 @@ export const eslintConfigShwaka = tseslint.config(
       "import/order": [2, { "alphabetize": { "order": "asc" } }],
       "import/named": 0, // Language not found in 'prism-react-renderer'
       "import/no-unresolved": 0, // ちゃんと設定できてないせいか大量に出てきてしまう
+    }
+  }
+)
+
+export const eslintConfigShwaka = tseslint.config(
+  ...eslintConfigShwakaBasic,
+  {
+    plugins: {
+      "react": reactPlugin,
+      "react-hooks": reactHooksPlugin,
+      "@stylistic/ts": stylisticTs,
+    },
+    rules: {
+      "@stylistic/ts/semi": ["error", "never"],
+      "@stylistic/ts/member-delimiter-style": [
+        "error",
+        {
+          "multiline": {
+            "delimiter": "none",
+          },
+          "singleline": {
+            "delimiter": "comma",
+            "requireLast": false,
+          }
+        }
+      ],
       "react/jsx-fragments": ["error", "element"], // <> ではなく <Fragment> を使う
       ...reactHooksPlugin.configs.recommended.rules,
     },
