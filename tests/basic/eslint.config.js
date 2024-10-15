@@ -5,6 +5,9 @@ import configShwaka from "eslint-config-shwaka"
 export default tseslint.config(
   {
     extends: [...configShwaka],
-    files: ['**/*.{ts,tsx}']
+    files: ['**/*.{ts,tsx}'],
+    linterOptions: {
+      reportUnusedDisableDirectives: "error"
+    }
   },
 )
