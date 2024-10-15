@@ -25,6 +25,7 @@ export const eslintConfigShwaka = tseslint.config(
       "unused-imports": unusedImports,
       "import": importPlugin,
       "react": reactPlugin,
+      "react-hooks": reactHooksPlugin,
       "@stylistic/ts": stylisticTs,
     },
     rules: {
