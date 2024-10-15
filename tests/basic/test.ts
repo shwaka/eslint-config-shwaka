@@ -24,6 +24,3 @@ function falsyValue(): void {
   }
   return
 }
-
-// These are allowed in basic config
-const lineWithSemi = 5;

@@ -67,12 +67,10 @@ export const eslintConfigShwakaBasic = tseslint.config(
   }
 )
 
-export const eslintConfigShwaka = tseslint.config(
+export const eslintConfigShwakaStylistic = tseslint.config(
   ...eslintConfigShwakaBasic,
   {
     plugins: {
-      "react": reactPlugin,
-      "react-hooks": reactHooksPlugin,
       "@stylistic/ts": stylisticTs,
     },
     rules: {
@@ -89,6 +87,19 @@ export const eslintConfigShwaka = tseslint.config(
           }
         }
       ],
+    },
+  },
+)
+
+export const eslintConfigShwaka = tseslint.config(
+  ...eslintConfigShwakaBasic,
+  ...eslintConfigShwakaStylistic,
+  {
+    plugins: {
+      "react": reactPlugin,
+      "react-hooks": reactHooksPlugin,
+    },
+    rules: {
       "react/jsx-fragments": ["error", "element"], // <> ではなく <Fragment> を使う
       ...reactHooksPlugin.configs.recommended.rules,
     },

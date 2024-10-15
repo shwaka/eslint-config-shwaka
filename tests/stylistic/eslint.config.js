@@ -1,10 +1,10 @@
 // @ts-check
 import tseslint from "typescript-eslint"
-import { eslintConfigShwakaBasic } from "eslint-config-shwaka"
+import { eslintConfigShwakaStylistic } from "eslint-config-shwaka"
 
 export default tseslint.config(
   {
-    extends: [...eslintConfigShwakaBasic],
+    extends: [...eslintConfigShwakaStylistic],
     files: ['**/*.{ts,tsx}'],
     linterOptions: {
       reportUnusedDisableDirectives: "error"
