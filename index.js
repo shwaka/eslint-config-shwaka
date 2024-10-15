@@ -91,7 +91,7 @@ export const eslintConfigShwakaStylistic = tseslint.config(
   },
 )
 
-export const eslintConfigShwaka = tseslint.config(
+export const eslintConfigShwakaReact = tseslint.config(
   ...eslintConfigShwakaBasic,
   ...eslintConfigShwakaStylistic,
   {
@@ -108,8 +108,10 @@ export const eslintConfigShwaka = tseslint.config(
         version: "detect", // for eslint-plugin-react
       },
     },
-  }
+  },
 )
+
+export const eslintConfigShwaka = eslintConfigShwakaReact
 
 export default eslintConfigShwaka
 
