@@ -3,7 +3,7 @@ name: Test
 on:
   push:
     branches: [ main ]
-    paths: [ ".github/workflows/test.yml", "tests/**", "index.js" ]
+    paths: [ ".github/workflows/test.yml", "tests/**", "index.js", "package.json", "package-lock.json" ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
