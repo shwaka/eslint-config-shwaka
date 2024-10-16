@@ -21,6 +21,7 @@ export const eslintConfigShwakaBasic = tseslint.config(
     },
   },
   {
+    name: "shwaka/base",
     plugins: {
       "unused-imports": unusedImports,
       "import": importPlugin,
@@ -70,6 +71,7 @@ export const eslintConfigShwakaBasic = tseslint.config(
 export const eslintConfigShwakaStylistic = tseslint.config(
   ...eslintConfigShwakaBasic,
   {
+    name: "shwaka/stylistic",
     plugins: {
       "@stylistic/ts": stylisticTs,
     },
@@ -95,6 +97,7 @@ export const eslintConfigShwakaReact = tseslint.config(
   ...eslintConfigShwakaBasic,
   ...eslintConfigShwakaStylistic,
   {
+    name: "shwaka/react",
     plugins: {
       "react": reactPlugin,
       "react-hooks": reactHooksPlugin,
