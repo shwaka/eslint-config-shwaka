@@ -13,18 +13,16 @@ export const eslintConfigShwakaBasic = tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    name: "shwaka/base",
+    plugins: {
+      "unused-imports": unusedImports,
+      "import": importPlugin,
+    },
     languageOptions: {
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname, // See note in https://typescript-eslint.io/getting-started/typed-linting/
       },
-    },
-  },
-  {
-    name: "shwaka/base",
-    plugins: {
-      "unused-imports": unusedImports,
-      "import": importPlugin,
     },
     rules: {
       "indent": [
