@@ -71,6 +71,7 @@ export const eslintConfigShwakaStylistic = tseslint.config(
   {
     name: "shwaka/stylistic",
     plugins: {
+      // @ts-ignore
       "@stylistic/ts": stylisticTs,
     },
     rules: {
@@ -97,6 +98,7 @@ export const eslintConfigShwakaReact = tseslint.config(
   {
     name: "shwaka/react",
     plugins: {
+      // @ts-ignore
       "react": reactPlugin,
       "react-hooks": reactHooksPlugin,
     },
