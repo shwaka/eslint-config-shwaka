@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "eslint": "eslint ."
+    "eslint": "eslint --max-warnings 0 ."
   },
   "dependencies": {},
   "devDependencies": {
