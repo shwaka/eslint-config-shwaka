@@ -1,6 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
 
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { Fragment } from "react/jsx-runtime"
 
 // export was added to avoid react-refresh/only-export-components
@@ -31,4 +31,13 @@ function HookInIf(): JSX.Element {
   return (
     <div>foo</div>
   )
+}
+
+function ExhaustiveDeps(): JSX.Element {
+  const [count, setCount] = useState(0)
+  const increment = useCallback(() => {
+    setCount(count + 1) // 本当は setCount((c) => c + 1) にするべきだけど
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  return (<div>foo</div>)
 }
