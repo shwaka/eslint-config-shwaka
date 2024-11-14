@@ -64,6 +64,7 @@ export const eslintConfigShwakaBasic = tseslint.config(
           "allowAny": false,
         }
       ],
+      "@typescript-eslint/switch-exhaustiveness-check": "error",
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",

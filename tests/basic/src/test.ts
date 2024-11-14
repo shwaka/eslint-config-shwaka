@@ -44,3 +44,11 @@ function restrictPlusOperands(): void {
   // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
   const foo: string = "1" + 2
 }
+
+function switchExhaustiveness(value: "foo" | "bar"): void {
+  // eslint-disable-next-line @typescript-eslint/switch-exhaustiveness-check
+  switch (value) {
+    case "foo":
+      console.log("The value is foo.")
+  }
+}
