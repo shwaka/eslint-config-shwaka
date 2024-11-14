@@ -50,6 +50,7 @@ git push --tags
 - [ESLintのShareable Configsを利用して複数プロジェクトで設定を共有する - なっく日報](https://yukidarake.hateblo.jp/entry/2015/09/15/210521)
 - [node.js - npm install from Git in a specific version - Stack Overflow](https://stackoverflow.com/questions/14187956/npm-install-from-git-in-a-specific-version)
 - [ESLint の設定を ESLint でテストする](https://studist.tech/test-eslint-config-by-eslint-8d03870a23d9) これを参考にして `tests/` を作った
+- [ESLint を使い倒す（おすすめルール紹介）](https://zenn.dev/noshiro_piko/articles/take-full-advantage-of-typescript-eslint) いくつかのルールをここから採用
 
 ## 標準的でなさそうなルールについて
 [スタイルガイド（コーディング規約） - TypeScript Deep Dive 日本語版](https://typescript-jp.gitbook.io/deep-dive/styleguide) が推奨しているものと違う部分について，その選択をした理由をメモしておく．
