@@ -43,11 +43,24 @@ function ExhaustiveDeps(): JSX.Element {
 }
 
 function StrictBooleanExpression(): JSX.Element {
-  const foo: number = 1
+  const count: number = 1
   return (
     <div>
-      {// eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-        foo && <span>bar</span>
+      {
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, react/jsx-no-leaked-render
+        count && <span>bar</span>
+      }
+    </div>
+  )
+}
+
+function NoLeakedRender(): JSX.Element {
+  const isFoo: boolean = true
+  return (
+    <div>
+      {
+        // eslint-disable-next-line react/jsx-no-leaked-render
+        isFoo && <span>bar</span>
       }
     </div>
   )
