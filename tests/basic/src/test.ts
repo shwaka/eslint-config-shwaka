@@ -39,3 +39,8 @@ function noImplicitCoercion(): void {
   // eslint-disable-next-line no-implicit-coercion
   const foo: number = +"123"
 }
+
+function restrictPlusOperands(): void {
+  // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+  const foo: string = "1" + 2
+}

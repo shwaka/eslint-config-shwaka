@@ -54,6 +54,16 @@ export const eslintConfigShwakaBasic = tseslint.config(
           "allowNumber": false,
         }
       ],
+      "@typescript-eslint/restrict-plus-operands": [
+        "error",
+        {
+          "allowBoolean": false,
+          "allowNullish": false,
+          "allowNumberAndString": false,
+          "allowRegExp": false,
+          "allowAny": false,
+        }
+      ],
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",
