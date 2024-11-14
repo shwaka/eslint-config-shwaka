@@ -39,6 +39,7 @@ export const eslintConfigShwakaBasic = tseslint.config(
         "double",
         { "avoidEscape": true }
       ],
+      "no-implicit-coercion": "error",
       // "semi": ["error", "never"], // use @stylistic/ts
       "@typescript-eslint/explicit-function-return-type": [
         2,

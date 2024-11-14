@@ -34,3 +34,8 @@ function functionWithExplicitAny(_: any): void {
 function functionWithImplicitAny(_): void {
   return
 }
+
+function noImplicitCoercion(): void {
+  // eslint-disable-next-line no-implicit-coercion
+  const foo: number = +"123"
+}
