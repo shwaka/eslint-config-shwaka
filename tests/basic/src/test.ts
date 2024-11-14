@@ -52,3 +52,23 @@ function switchExhaustiveness(value: "foo" | "bar"): void {
       console.log("The value is foo.")
   }
 }
+
+function noRestrictedGlobals(): void {
+  // eslint-disable-next-line no-restricted-globals
+  close()
+  window.close() // OK
+  // eslint-disable-next-line no-restricted-globals
+  open()
+  window.open() // OK
+  // eslint-disable-next-line no-restricted-globals
+  console.log(location)
+  console.log(window.location) // OK
+  // eslint-disable-next-line no-restricted-globals
+  console.log(event)
+  // eslint-disable-next-line no-restricted-globals
+  isNaN(NaN)
+  Number.isNaN(NaN) // OK
+  // eslint-disable-next-line no-restricted-globals
+  isFinite(1)
+  Number.isFinite(1) // OK
+}
