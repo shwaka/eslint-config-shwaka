@@ -41,3 +41,14 @@ function ExhaustiveDeps(): JSX.Element {
   }, [])
   return (<div>foo</div>)
 }
+
+function StrictBooleanExpression(): JSX.Element {
+  const foo: number = 1
+  return (
+    <div>
+      {// eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        foo && <span>bar</span>
+      }
+    </div>
+  )
+}
