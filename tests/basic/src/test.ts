@@ -53,6 +53,11 @@ function switchExhaustiveness(value: "foo" | "bar"): void {
   }
 }
 
+function noFloatingPromises(asyncFunc: () => Promise<void>): void {
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  asyncFunc()
+}
+
 function noRestrictedGlobals(): void {
   // eslint-disable-next-line no-restricted-globals
   close()
