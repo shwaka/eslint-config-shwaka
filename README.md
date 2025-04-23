@@ -52,7 +52,7 @@ git push --tags
 
 ```bash
 cd tests/<test_name>/
-npm run ci
+npm ci
 npm run eslint
 ```
 
