@@ -56,6 +56,9 @@ npm ci
 npm run eslint
 ```
 
+なお，いずれも `eslint-config-shwaka` をローカルファイルからインストールしているので，
+`npm install` する際は `npm install --install-links` とした方が良い．
+
 ## 参考ページ
 - [ESLintのShareable Configsを利用して複数プロジェクトで設定を共有する - なっく日報](https://yukidarake.hateblo.jp/entry/2015/09/15/210521)
 - [node.js - npm install from Git in a specific version - Stack Overflow](https://stackoverflow.com/questions/14187956/npm-install-from-git-in-a-specific-version)
