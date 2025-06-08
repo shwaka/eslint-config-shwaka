@@ -8,6 +8,23 @@ import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import stylisticTs from '@stylistic/eslint-plugin-ts'
 
+const importOrderOptions = {
+  "groups": ["builtin", "external", "internal"],
+  "pathGroups": [
+    {
+      "pattern": "react",
+      "group": "external",
+      "position": "before"
+    }
+  ],
+  "pathGroupsExcludedImportTypes": ["react"],
+  "newlines-between": "always",
+  "alphabetize": {
+    "order": "asc",
+    "caseInsensitive": true
+  },
+}
+
 export const eslintConfigShwakaBasic = tseslint.config(
   js.configs.recommended,
   eslint.configs.recommended,
@@ -88,11 +105,24 @@ export const eslintConfigShwakaBasic = tseslint.config(
         { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
       ],
       "sort-imports": 0,
-      "import/order": [2, { "alphabetize": { "order": "asc" } }],
+      "import/order": ["error", importOrderOptions],
       "import/named": 0, // Language not found in 'prism-react-renderer'
       "import/no-unresolved": 0, // ちゃんと設定できてないせいか大量に出てきてしまう
     }
   }
+)
+
+export const eslintConfigShwakaImport = tseslint.config(
+  tseslint.configs.base,
+  {
+    files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
+    plugins: {
+      "import": importPlugin
+    },
+    rules: {
+      "import/order": ["error", importOrderOptions],
+    }
+  },
 )
 
 export const eslintConfigShwakaStylistic = tseslint.config(
