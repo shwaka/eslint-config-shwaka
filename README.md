@@ -19,6 +19,7 @@
 - `github:shwaka/eslint-config-shwaka#v0.1` だとsshが使われるので，GitHub Actions とかで失敗する
 - `git+https://github.com/shwaka/eslint-config-shwaka#v0.1` ならhttpsなので大丈夫
 - `package.json` 内でバージョンを更新したのに反映されない場合は，`package-lock.json` を削除してから `npm i` すれば良い (けど，もっと良い方法がありそう)
+    + → `npm i "eslint-config-shwaka@git+https://github.com/shwaka/eslint-config-shwaka#v99.9"` でいけた
 
 ### .eslintrc.js
 ```js
