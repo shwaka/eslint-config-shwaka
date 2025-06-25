@@ -66,3 +66,20 @@ function NoLeakedRender(): JSX.Element {
     </div>
   )
 }
+
+function IndentInConditionalJSX({ isFoo }: { isFoo: boolean }): JSX.Element {
+  // This should be allowed
+  return (
+    isFoo
+      ? (
+        <span>
+          foo
+        </span>
+      )
+      : (
+        <span>
+          not foo
+        </span>
+      )
+  )
+}
