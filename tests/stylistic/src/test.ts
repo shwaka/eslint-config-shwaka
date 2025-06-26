@@ -56,14 +56,14 @@ function correctIndent(): void {
 function wrongIndent(): void {
   const foo: number = 1
   if (foo === 2) {
-    // eslint-disable-next-line indent
+    // eslint-disable-next-line @stylistic/indent
   console.log(3)
   }
   switch (foo) {
-    // eslint-disable-next-line indent
+    // eslint-disable-next-line @stylistic/indent
   case 1:
       return
-    // eslint-disable-next-line indent
+    // eslint-disable-next-line @stylistic/indent
   case 2:
       return
   }

@@ -42,11 +42,6 @@ export const eslintConfigShwakaBasic = tseslint.config(
       },
     },
     rules: {
-      "indent": [
-        "error",
-        2,
-        {"SwitchCase": 1},
-      ],
       "linebreak-style": [
         "error",
         "unix"
@@ -142,6 +137,11 @@ export const eslintConfigShwakaStylistic = tseslint.config(
       "@stylistic": stylistic,
     },
     rules: {
+      "@stylistic/indent": [
+        "error",
+        2,
+        { "SwitchCase": 1 },
+      ],
       "@stylistic/semi": ["error", "never"],
       "@stylistic/member-delimiter-style": [
         "error",
