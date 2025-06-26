@@ -8,14 +8,6 @@ function functionWithoutReturnType() {
   return
 }
 
-// eslint-disable-next-line quotes
-const stringWithSingleQuotes = 'foo'
-
-function wrongIndent(): void {
-  // eslint-disable-next-line indent
-    return
-}
-
 function falsyValue(): void {
   const falsy = 0
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions

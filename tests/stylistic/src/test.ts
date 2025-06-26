@@ -51,6 +51,7 @@ function correctIndent(): void {
     case 2:
       return
   }
+  return
 }
 
 function wrongIndent(): void {
@@ -67,4 +68,21 @@ function wrongIndent(): void {
   case 2:
       return
   }
+  // eslint-disable-next-line @stylistic/indent
+    return
+}
+
+function quotes(): void {
+  // eslint-disable-next-line @stylistic/quotes
+  const stringWithSingleQuotes = 'foo'
+  // eslint-disable-next-line @stylistic/quotes
+  const stringWithBackQuotes = `foo`
+  // The following should be allowed
+  const stringContainingTemplateLiteral = `foo${3}`
+  const stringContainingDoubleQuotes = '{ "foo": "bar" }'
+  const stringContainingNewlines = `[
+  1,
+  2,
+  3
+]`
 }
