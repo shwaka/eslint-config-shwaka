@@ -80,6 +80,11 @@ export const eslintConfigShwakaBasic = tseslint.config(
       ],
       "@typescript-eslint/no-inferrable-types": "off",
       "@typescript-eslint/no-unused-vars": "off", // provided by "unused-imports"
+      // ↓元々はno-unused-expressionsに関する設定は何もしていなかったが，
+      // eslint v9 で「オプションが未定義」というようなエラーが出たので，
+      // とりあえず明示的に無効化することにした．
+      // 有効化したいときは allowShortCircuit などのオプションを指定する必要があるっぽい？
+      "@typescript-eslint/no-unused-expressions": "off",
       "@typescript-eslint/strict-boolean-expressions": [
         "error",
         {
