@@ -42,11 +42,6 @@ export const eslintConfigShwakaBasic = tseslint.config(
       },
     },
     rules: {
-      "quotes": [
-        "error",
-        "double",
-        { "avoidEscape": true }
-      ],
       "no-implicit-coercion": "error",
       "no-restricted-globals": [
         "error",
@@ -141,6 +136,11 @@ export const eslintConfigShwakaStylistic = tseslint.config(
       "@stylistic/linebreak-style": [
         "error",
         "unix"
+      ],
+      "@stylistic/quotes": [
+        "error",
+        "double",
+        { "avoidEscape": true }
       ],
       "@stylistic/semi": ["error", "never"],
       "@stylistic/member-delimiter-style": [
