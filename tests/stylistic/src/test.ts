@@ -121,3 +121,7 @@ function operatorLinebreak(): void {
   // eslint-disable-next-line @stylistic/operator-linebreak
     = 1 + 2 + 3 + 4 + 5
 }
+
+function maxStatementsPerLine(): void {
+  const foo: NumFunc = (arg) => { return arg * 2 }
+}

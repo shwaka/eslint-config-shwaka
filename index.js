@@ -183,6 +183,7 @@ export const eslintConfigShwakaStylistic = tseslint.config(
         "after", // "before" in stylistic.configs.customize
         { "overrides": { "?": "before", ":": "before" } },
       ],
+      "@stylistic/max-statements-per-line": "off", // 暫定的に
     },
   },
 )
