@@ -86,3 +86,24 @@ function quotes(): void {
   3
 ]`
 }
+
+type NumFunc = (arg: number) => number
+
+function arrowParens(): void {
+  const foo: NumFunc = (arg) => (arg * 2)
+  // eslint-disable-next-line @stylistic/arrow-parens
+  const bar: NumFunc = arg => (arg * 2)
+  // eslint-disable-next-line @stylistic/arrow-parens
+  const baz: NumFunc = arg => {
+    return arg * 2
+  }
+}
+
+function braceStyle(isFoo: boolean): void {
+  if (isFoo) {
+    console.log("foo")
+  }
+  else {
+    console.log("not foo")
+  }
+}
