@@ -102,6 +102,12 @@ function arrowParens(): void {
 function braceStyle(isFoo: boolean): void {
   if (isFoo) {
     console.log("foo")
+  } else {
+    console.log("not foo")
+  }
+  if (isFoo) {
+    console.log("foo")
+    // eslint-disable-next-line @stylistic/brace-style
   }
   else {
     console.log("not foo")
