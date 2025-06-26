@@ -85,6 +85,9 @@ export const eslintConfigShwakaBasic = tseslint.config(
       // とりあえず明示的に無効化することにした．
       // 有効化したいときは allowShortCircuit などのオプションを指定する必要があるっぽい？
       "@typescript-eslint/no-unused-expressions": "off",
+      "@typescript-eslint/no-empty-function": ["warn", {
+        allow: []
+      }],
       "@typescript-eslint/strict-boolean-expressions": [
         "error",
         {

@@ -30,6 +30,11 @@ function functionWithExplicitAny(_: any): void {
   return
 }
 
+function noEmptyFunction(): void {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const foo = (): void => {}
+}
+
 // @ts-expect-error こっち (implicit any) は，eslint ではなく tsc がエラーを出す．
 function functionWithImplicitAny(_): void {
   return
