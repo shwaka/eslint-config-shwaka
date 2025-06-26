@@ -1,9 +1,9 @@
 // @ts-check
 import tseslint from "typescript-eslint"
-import { eslintConfigShwakaImport } from "eslint-config-shwaka"
+import { eslintConfigShwakaOnsave } from "eslint-config-shwaka"
 
 export default tseslint.config(
-  ...eslintConfigShwakaImport,
+  ...eslintConfigShwakaOnsave,
   {
     files: ['**/*.{ts,tsx}'],
     linterOptions: {
