@@ -178,6 +178,11 @@ export const eslintConfigShwakaStylistic = tseslint.config(
       //   }
       // ],
       "@stylistic/jsx-one-expression-per-line": "off", // "error" in stylistic.configs.customize
+      "@stylistic/operator-linebreak": [
+        "error",
+        "after", // "before" in stylistic.configs.customize
+        { "overrides": { "?": "before", ":": "before" } },
+      ],
     },
   },
 )

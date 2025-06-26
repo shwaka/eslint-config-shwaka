@@ -113,3 +113,11 @@ function braceStyle(isFoo: boolean): void {
     console.log("not foo")
   }
 }
+
+function operatorLinebreak(): void {
+  const foo =
+    1 + 2 + 3 + 4 + 5
+  const bar
+  // eslint-disable-next-line @stylistic/operator-linebreak
+    = 1 + 2 + 3 + 4 + 5
+}
