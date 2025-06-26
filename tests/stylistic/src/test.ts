@@ -39,3 +39,32 @@ type MultilineNoDelmiterType = {
   bar: string
 }
 type SingleLineCommaDelimiterAllowedType = { foo: number, bar: string }
+
+function correctIndent(): void {
+  const foo: number = 1
+  if (foo === 2) {
+    console.log(3)
+  }
+  switch (foo) {
+    case 1:
+      return
+    case 2:
+      return
+  }
+}
+
+function wrongIndent(): void {
+  const foo: number = 1
+  if (foo === 2) {
+    // eslint-disable-next-line indent
+  console.log(3)
+  }
+  switch (foo) {
+    // eslint-disable-next-line indent
+  case 1:
+      return
+    // eslint-disable-next-line indent
+  case 2:
+      return
+  }
+}
