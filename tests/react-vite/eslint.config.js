@@ -12,6 +12,9 @@ export default tseslint.config(
     // ↓これがあると Cannot redefine plugin "@typescript-eslint" って出る
     // extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
+    linterOptions: {
+      reportUnusedDisableDirectives: "error"
+    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
