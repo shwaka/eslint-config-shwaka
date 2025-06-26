@@ -109,17 +109,20 @@ export const eslintConfigShwakaBasic = tseslint.config(
 export const eslintConfigShwakaOnsave = tseslint.config(
   tseslint.configs.base,
   {
+    // files で指定されたものに限らず，*.jsファイルとかにも適用する
+    linterOptions: {
+      // eslint v9 からこれが勝手にオンになってて，しかもautofixされちゃうっぽい．
+      // onsaveでは大半のruleが無効になっているので，eslint-disable-next-lineが沢山消されてしまう．
+      reportUnusedDisableDirectives: "off",
+    },
+  },
+  {
     files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
     plugins: {
       "import": importPlugin
     },
     rules: {
       "import/order": ["error", importOrderOptions],
-    },
-    linterOptions: {
-      // eslint v9 からこれが勝手にオンになってて，しかもautofixされちゃうっぽい．
-      // onsaveでは大半のruleが無効になっているので，eslint-disable-next-lineが沢山消されてしまう．
-      reportUnusedDisableDirectives: "off",
     },
   },
 )
