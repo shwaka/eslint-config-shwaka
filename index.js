@@ -6,7 +6,7 @@ import unusedImports from 'eslint-plugin-unused-imports'
 import importPlugin from 'eslint-plugin-import'
 import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
-import stylisticTs from '@stylistic/eslint-plugin-ts'
+import stylistic from '@stylistic/eslint-plugin'
 
 const importOrderOptions = {
   "groups": ["builtin", "external", "internal"],
@@ -139,11 +139,11 @@ export const eslintConfigShwakaStylistic = tseslint.config(
     name: "shwaka/stylistic",
     plugins: {
       // @ts-ignore
-      "@stylistic/ts": stylisticTs,
+      "@stylistic": stylistic,
     },
     rules: {
-      "@stylistic/ts/semi": ["error", "never"],
-      "@stylistic/ts/member-delimiter-style": [
+      "@stylistic/semi": ["error", "never"],
+      "@stylistic/member-delimiter-style": [
         "error",
         {
           "multiline": {

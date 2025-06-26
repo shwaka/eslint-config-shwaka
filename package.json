@@ -20,7 +20,7 @@
   "homepage": "https://github.com/shwaka/eslint-config-shwaka#readme",
   "dependencies": {
     "@eslint/js": "^9.12.0",
-    "@stylistic/eslint-plugin-ts": "^2.9.0",
+    "@stylistic/eslint-plugin": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^8.35.0",
     "@typescript-eslint/parser": "^8.35.0",
     "eslint-plugin-import": "^2.31.0",
