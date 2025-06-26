@@ -129,6 +129,13 @@ export const eslintConfigShwakaOnsave = tseslint.config(
 
 export const eslintConfigShwakaStylistic = tseslint.config(
   ...eslintConfigShwakaBasic,
+  stylistic.configs.customize({
+    indent: 2,
+    quotes: "double",
+    semi: false,
+    jsx: true,
+    arrowParens: true,
+  }),
   {
     name: "shwaka/stylistic",
     plugins: {
@@ -139,30 +146,37 @@ export const eslintConfigShwakaStylistic = tseslint.config(
       "@stylistic/indent": [
         "error",
         2,
-        { "SwitchCase": 1 },
+        {
+          "SwitchCase": 1,
+          "offsetTernaryExpressions": false, // true in stylistic.configs.customize
+        },
       ],
       "@stylistic/linebreak-style": [
+        // not contained in stylistic.configs.customize
         "error",
         "unix"
       ],
       "@stylistic/quotes": [
         "error",
         "double",
-        { "avoidEscape": true }
-      ],
-      "@stylistic/semi": ["error", "never"],
-      "@stylistic/member-delimiter-style": [
-        "error",
         {
-          "multiline": {
-            "delimiter": "none",
-          },
-          "singleline": {
-            "delimiter": "comma",
-            "requireLast": false,
-          }
+          "avoidEscape": true, // false in stylistic.configs.customize
         }
       ],
+      // "@stylistic/member-delimiter-style": [
+      //   // same as in stylistic.configs.customize
+      //   "error",
+      //   {
+      //     "multiline": {
+      //       "delimiter": "none",
+      //     },
+      //     "singleline": {
+      //       "delimiter": "comma",
+      //       "requireLast": false,
+      //     }
+      //   }
+      // ],
+      "@stylistic/jsx-one-expression-per-line": "off", // "error" in stylistic.configs.customize
     },
   },
 )
