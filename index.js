@@ -136,6 +136,7 @@ export const eslintConfigShwakaStylistic = tseslint.config(
     jsx: true,
     arrowParens: true,
     braceStyle: "1tbs",
+    quoteProps: "as-needed",
   }),
   {
     name: "shwaka/stylistic",

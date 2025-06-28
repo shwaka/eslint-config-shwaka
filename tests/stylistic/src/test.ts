@@ -141,3 +141,19 @@ function commaDangle(): void {
     "very very very long argument and put at a separate line"
   )
 }
+
+function quoteProps(): void {
+  const obj1 = {
+    foo: 1,
+    bar: 2,
+  }
+  const obj2 = {
+    foo: 1,
+    // eslint-disable-next-line @stylistic/quote-props
+    "bar": 2,
+  }
+  const obj3 = {
+    foo: 1,
+    "bar-baz": 2,
+  }
+}
