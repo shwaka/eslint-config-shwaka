@@ -83,3 +83,15 @@ function IndentInConditionalJSX({ isFoo }: { isFoo: boolean }): JSX.Element {
       )
   )
 }
+
+function MaxPropsPerLine(): JSX.Element {
+  // Writing multiple props in the same line should be allowed
+  return (
+    <div
+      className="foo" id="bar"
+      style={{ width: 100 }}
+    >
+      test
+    </div>
+  )
+}
