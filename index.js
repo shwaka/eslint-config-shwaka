@@ -215,6 +215,7 @@ export const eslintConfigShwakaReact = tseslint.config(
       "react/jsx-no-leaked-render": ["error", {
         "validStrategies": ["ternary"]
       }],
+      "react/jsx-key": "error",
       ...reactHooksPlugin.configs.recommended.rules,
     },
     settings: {

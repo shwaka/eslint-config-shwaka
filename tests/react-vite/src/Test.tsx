@@ -66,3 +66,14 @@ function NoLeakedRender(): JSX.Element {
     </div>
   )
 }
+
+function JsxKey(): JSX.Element {
+  return (
+    <div>
+      {[0, 1, 2, 3, 4].map((i) => (
+        // eslint-disable-next-line react/jsx-key
+        <div>{i}</div>
+      ))}
+    </div>
+  )
+}
