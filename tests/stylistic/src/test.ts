@@ -1,4 +1,5 @@
-/* eslint-disable unused-imports/no-unused-vars */
+// eslintConfigShwakaStylistic does NOT extend eslintConfigShwakaBasic
+// /* eslint-disable unused-imports/no-unused-vars */
 
 // eslint-disable-next-line @stylistic/semi
 const lineWithSemi = 5;

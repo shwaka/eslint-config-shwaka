@@ -128,7 +128,7 @@ export const eslintConfigShwakaOnsave = tseslint.config(
 )
 
 export const eslintConfigShwakaStylistic = tseslint.config(
-  ...eslintConfigShwakaBasic,
+  tseslint.configs.base,
   stylistic.configs.customize({
     indent: 2,
     quotes: "double",
