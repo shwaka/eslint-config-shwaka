@@ -114,6 +114,24 @@ function braceStyle(isFoo: boolean): void {
   }
 }
 
+// 本当は以下の記法許容したいけど，ESLintは
+// - JavaScript の式における a | b
+// - TypeScript の型における Foo | Bar
+// を区別できないっぽいので，諦める．
+type OperatorLinebreak =
+  | string
+  // eslint-disable-next-line @stylistic/operator-linebreak
+  | number
+  // eslint-disable-next-line @stylistic/operator-linebreak
+  | boolean
+
+/* eslint-disable @stylistic/operator-linebreak */
+type OperatorLinebreak2 =
+  | string
+  | number
+  | boolean
+/* eslint-enable @stylistic/operator-linebreak */
+
 function operatorLinebreak(): void {
   const foo =
     1 + 2 + 3 + 4 + 5
