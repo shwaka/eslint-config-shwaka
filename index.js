@@ -183,7 +183,13 @@ export const eslintConfigShwakaStylistic = tseslint.config(
       "@stylistic/operator-linebreak": [
         "error",
         "after", // "before" in stylistic.configs.customize
-        { "overrides": { "?": "before", ":": "before" } },
+        { "overrides": {
+          "?": "before",
+          ":": "before",
+          // See tests/stylistic/ why | and & are "before"
+          "|": "before",
+          "&": "before",
+        } },
       ],
       "@stylistic/max-statements-per-line": "off", // 暫定的に
       "@stylistic/comma-dangle": ["error", "only-multiline"],

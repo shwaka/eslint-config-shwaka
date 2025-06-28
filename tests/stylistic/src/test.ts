@@ -114,23 +114,27 @@ function braceStyle(isFoo: boolean): void {
   }
 }
 
-// 本当は以下の記法許容したいけど，ESLintは
-// - JavaScript の式における a | b
-// - TypeScript の型における Foo | Bar
-// を区別できないっぽいので，諦める．
-type OperatorLinebreak =
+// これを許容するために， "|": "before" にした
+type OperatorLinebreakOr =
   | string
-  // eslint-disable-next-line @stylistic/operator-linebreak
   | number
-  // eslint-disable-next-line @stylistic/operator-linebreak
   | boolean
 
-/* eslint-disable @stylistic/operator-linebreak */
-type OperatorLinebreak2 =
-  | string
-  | number
-  | boolean
-/* eslint-enable @stylistic/operator-linebreak */
+type OperatorLinebreakOr2 =
+  // eslint-disable-next-line @stylistic/operator-linebreak
+  string |
+  number
+
+// これを許容するために， "&": "before" にした
+type OperatorLinebreakAnd =
+  & string
+  & number
+  & boolean
+
+type OperatorLinebreakAnd2 =
+  // eslint-disable-next-line @stylistic/operator-linebreak
+  string &
+  number
 
 function operatorLinebreak(): void {
   const foo =
@@ -138,6 +142,11 @@ function operatorLinebreak(): void {
   const bar
   // eslint-disable-next-line @stylistic/operator-linebreak
     = 1 + 2 + 3 + 4 + 5
+  const bitwiseOr = 1 | 2
+  const bitwiseOr2 =
+    // eslint-disable-next-line @stylistic/operator-linebreak
+    1 |
+    2
 }
 
 function maxStatementsPerLine(): void {
