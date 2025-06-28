@@ -228,38 +228,3 @@ export const eslintConfigShwakaReact = tseslint.config(
 export const eslintConfigShwaka = eslintConfigShwakaReact
 
 export default eslintConfigShwaka
-
-// 以下は flat config に対応する前のもの
-/** @type {import("eslint").Linter.Config} */
-// module.exports = {...} とすると型チェックが何故か働かないので，変数定義を挟む
-// const config = {
-//   "env": {
-//     "browser": true,
-//     "es2021": true
-//   },
-//   "extends": [
-//     "eslint:recommended",
-//     "plugin:react/recommended",
-//     "plugin:react-hooks/recommended",
-//     "plugin:@typescript-eslint/recommended",
-//     "plugin:import/errors"
-//   ],
-//   "parser": "@typescript-eslint/parser",
-//   "parserOptions": {
-//     "ecmaFeatures": {
-//       "jsx": true
-//     },
-//     // @ts-expect-error type上では何故か12までしか許容されない(けど実行時は大丈夫っぽい？)
-//     "ecmaVersion": 13,
-//     "sourceType": "module",
-//     "project": ["./tsconfig.json"], // added for @typescript-eslint/strict-boolean-expressions
-//   },
-//   "plugins": [
-//     "react",
-//     "react-hooks",
-//     "@typescript-eslint",
-//     "unused-imports"
-//   ],
-// }
-//
-// module.exports = config
