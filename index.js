@@ -193,6 +193,7 @@ export const eslintConfigShwakaStylistic = tseslint.config(
       ],
       "@stylistic/max-statements-per-line": "off", // 暫定的に
       "@stylistic/comma-dangle": ["error", "only-multiline"],
+      "@stylistic/no-extra-parens": "off", // 視認性のために追加したい場合がある
     },
   },
 )

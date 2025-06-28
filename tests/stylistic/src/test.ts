@@ -184,3 +184,10 @@ function quoteProps(): void {
     "bar-baz": 2,
   }
 }
+
+function noExtraParens(): void {
+  // 視認性のためにこういう括弧を追加したい(場合がある)ので，
+  // @stylistic/no-extra-parens は "off" にした．
+  const foo: NumFunc = ((arg) => arg * 2)
+  const bar = (1 * 2) + 3
+}
