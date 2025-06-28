@@ -17,7 +17,7 @@ export function IndentInConditionalJSX({ isFoo }: { isFoo: boolean }): JSX.Eleme
   )
 }
 
-function MaxPropsPerLine(): JSX.Element {
+function JsxMaxPropsPerLine(): JSX.Element {
   // Writing multiple props in the same line should be allowed
   return (
     <div
@@ -27,4 +27,15 @@ function MaxPropsPerLine(): JSX.Element {
       test
     </div>
   )
+}
+
+function JsxTagSpacing(): JSX.Element {
+  const foo = <div />
+  // eslint-disable-next-line @stylistic/jsx-tag-spacing
+  const bar = <div/>
+  const baz = (
+    // eslint-disable-next-line @stylistic/jsx-tag-spacing
+    <div className="my-div"/>
+  )
+  return (<div>foo</div>)
 }
