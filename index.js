@@ -8,22 +8,33 @@ import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import stylistic from '@stylistic/eslint-plugin'
 
-const importOrderOptions = {
-  "groups": ["builtin", "external", "internal"],
-  "pathGroups": [
-    {
-      "pattern": "react",
-      "group": "external",
-      "position": "before"
-    }
-  ],
-  "pathGroupsExcludedImportTypes": ["react"],
-  "newlines-between": "always",
-  "alphabetize": {
-    "order": "asc",
-    "caseInsensitive": true
+const eslintConfigShwakaImportOrder = tseslint.config(
+  tseslint.configs.base,
+  {
+    name: "shwaka/import-order",
+    plugins: {
+      "import": importPlugin
+    },
+    rules: {
+      "import/order": ["error", {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+      }],
+    },
   },
-}
+)
 
 export const eslintConfigShwakaBasic = tseslint.config(
   js.configs.recommended,
@@ -99,7 +110,6 @@ export const eslintConfigShwakaBasic = tseslint.config(
         { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
       ],
       "sort-imports": 0,
-      "import/order": ["error", importOrderOptions],
       "import/named": 0, // Language not found in 'prism-react-renderer'
       "import/no-unresolved": 0, // ちゃんと設定できてないせいか大量に出てきてしまう
     }
@@ -180,21 +190,12 @@ export const eslintConfigShwakaStylistic = tseslint.config(
 export const eslintConfigShwakaOnsave = tseslint.config(
   tseslint.configs.base,
   ...eslintConfigShwakaStylistic,
+  ...eslintConfigShwakaImportOrder,
   {
-    // files で指定されたものに限らず，*.jsファイルとかにも適用する
     linterOptions: {
       // eslint v9 からこれが勝手にオンになってて，しかもautofixされちゃうっぽい．
       // onsaveでは大半のruleが無効になっているので，eslint-disable-next-lineが沢山消されてしまう．
       reportUnusedDisableDirectives: "off",
-    },
-  },
-  {
-    files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
-    plugins: {
-      "import": importPlugin
-    },
-    rules: {
-      "import/order": ["error", importOrderOptions],
     },
   },
 )
