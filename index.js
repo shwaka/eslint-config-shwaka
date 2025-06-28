@@ -106,27 +106,6 @@ export const eslintConfigShwakaBasic = tseslint.config(
   }
 )
 
-export const eslintConfigShwakaOnsave = tseslint.config(
-  tseslint.configs.base,
-  {
-    // files で指定されたものに限らず，*.jsファイルとかにも適用する
-    linterOptions: {
-      // eslint v9 からこれが勝手にオンになってて，しかもautofixされちゃうっぽい．
-      // onsaveでは大半のruleが無効になっているので，eslint-disable-next-lineが沢山消されてしまう．
-      reportUnusedDisableDirectives: "off",
-    },
-  },
-  {
-    files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
-    plugins: {
-      "import": importPlugin
-    },
-    rules: {
-      "import/order": ["error", importOrderOptions],
-    },
-  },
-)
-
 export const eslintConfigShwakaStylistic = tseslint.config(
   tseslint.configs.base,
   stylistic.configs.customize({
@@ -194,6 +173,28 @@ export const eslintConfigShwakaStylistic = tseslint.config(
       "@stylistic/max-statements-per-line": "off", // 暫定的に
       "@stylistic/comma-dangle": ["error", "only-multiline"],
       "@stylistic/no-extra-parens": "off", // 視認性のために追加したい場合がある
+    },
+  },
+)
+
+export const eslintConfigShwakaOnsave = tseslint.config(
+  tseslint.configs.base,
+  ...eslintConfigShwakaStylistic,
+  {
+    // files で指定されたものに限らず，*.jsファイルとかにも適用する
+    linterOptions: {
+      // eslint v9 からこれが勝手にオンになってて，しかもautofixされちゃうっぽい．
+      // onsaveでは大半のruleが無効になっているので，eslint-disable-next-lineが沢山消されてしまう．
+      reportUnusedDisableDirectives: "off",
+    },
+  },
+  {
+    files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
+    plugins: {
+      "import": importPlugin
+    },
+    rules: {
+      "import/order": ["error", importOrderOptions],
     },
   },
 )
