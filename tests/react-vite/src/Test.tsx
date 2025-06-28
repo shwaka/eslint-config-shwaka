@@ -48,7 +48,7 @@ function StrictBooleanExpression(): JSX.Element {
   return (
     <div>
       {
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, react/jsx-no-leaked-render
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         count && <span>bar</span>
       }
     </div>
@@ -60,7 +60,7 @@ function NoLeakedRender(): JSX.Element {
   return (
     <div>
       {
-        // eslint-disable-next-line react/jsx-no-leaked-render
+        // @typescript-eslint/strict-boolean-expressions を使ってるので，booleanに対する && は許容する
         isFoo && <span>bar</span>
       }
     </div>

@@ -212,9 +212,7 @@ export const eslintConfigShwakaReact = tseslint.config(
     },
     rules: {
       "react/jsx-fragments": ["error", "element"], // <> ではなく <Fragment> を使う
-      "react/jsx-no-leaked-render": ["error", {
-        "validStrategies": ["ternary"]
-      }],
+      "react/jsx-no-leaked-render": "off", // @typescript-eslint/strict-boolean-expressions があれば十分
       "react/jsx-key": "error",
       ...reactHooksPlugin.configs.recommended.rules,
     },
