@@ -185,6 +185,7 @@ export const eslintConfigShwakaStylistic = tseslint.config(
         { "overrides": { "?": "before", ":": "before" } },
       ],
       "@stylistic/max-statements-per-line": "off", // 暫定的に
+      "@stylistic/comma-dangle": ["error", "only-multiline"],
     },
   },
 )

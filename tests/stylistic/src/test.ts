@@ -125,3 +125,19 @@ function operatorLinebreak(): void {
 function maxStatementsPerLine(): void {
   const foo: NumFunc = (arg) => { return arg * 2 }
 }
+
+function commaDangle(): void {
+  const foo = [1, 2, 3]
+  const bar = [
+    1,
+    2,
+    3
+  ]
+  // eslint-disable-next-line @stylistic/comma-dangle
+  const baz = [1, 2, 3,]
+  function myFunc(arg: string): void { console.log(arg) }
+  // 以下のような場合にはtrailing-commaは付けたくないので，"only-multiline" にした．
+  myFunc(
+    "very very very long argument and put at a separate line"
+  )
+}
