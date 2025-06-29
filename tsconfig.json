@@ -17,6 +17,7 @@
     // go to js file when using IDE functions like
     // "Go to Definition" in VSCode
     "declarationMap": false, // いらない気がするので false にした
+    "strict": true,
 
     // 以下は index.js の型チェックを通すために追加したもの
     "lib": ["ES2015"],
