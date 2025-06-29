@@ -203,6 +203,7 @@ export const eslintConfigShwakaOnsave = tseslint.config(
 export const eslintConfigShwakaReact = tseslint.config(
   ...eslintConfigShwakaBasic,
   ...eslintConfigShwakaStylistic,
+  ...eslintConfigShwakaImportOrder,
   {
     name: "shwaka/react",
     plugins: {
