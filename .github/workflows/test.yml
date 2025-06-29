@@ -9,13 +9,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  vitest:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: volta-cli/action@v3
+    - name: Run npm ci in the root
+      run: npm ci
+      working-directory: .
+    - name: Run vitest
+      run: npm run test
 
+  test-projects:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         name: [basic, stylistic, react-vite, onsave]
-
     steps:
     - uses: actions/checkout@v4
     - uses: volta-cli/action@v3

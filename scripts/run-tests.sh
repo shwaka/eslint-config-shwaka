@@ -10,6 +10,10 @@ ROOT_DIR=$(pwd)
 TEST_DIR="$ROOT_DIR/test-projects"
 TARGETS=$(ls "$TEST_DIR")
 
+# Run vitest
+cd "$ROOT_DIR"
+npm run test
+
 for target in $TARGETS; do
     echo
     echo -e "\e[32m--- $target\e[m"
