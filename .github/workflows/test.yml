@@ -3,7 +3,7 @@ name: Test
 on:
   push:
     branches: [ main ]
-    paths: [ ".github/workflows/test.yml", "tests/**", "index.js", "package.json", "package-lock.json" ]
+    paths: [ ".github/workflows/test.yml", "test-projects/**", "index.js", "package.json", "package-lock.json" ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
       working-directory: .
     - name: Run npm ci in a test
       run: npm ci
-      working-directory: tests/${{ matrix.name }}
+      working-directory: test-projects/${{ matrix.name }}
     - name: Run eslint
       run: npm run eslint
-      working-directory: tests/${{ matrix.name }}
+      working-directory: test-projects/${{ matrix.name }}

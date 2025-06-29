@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 cd "$(git rev-parse --show-toplevel)" # go to the root of the repository
 ROOT_DIR=$(pwd)
 
-TEST_DIR="$ROOT_DIR/tests"
+TEST_DIR="$ROOT_DIR/test-projects"
 TARGETS=$(ls "$TEST_DIR")
 
 for target in $TARGETS; do
