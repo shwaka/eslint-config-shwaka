@@ -41,7 +41,7 @@ export const eslintConfigShwakaBasic = tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    name: "shwaka/base",
+    name: "shwaka/basic",
     plugins: {
       "unused-imports": unusedImports,
       "import": importPlugin,
