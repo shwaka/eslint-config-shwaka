@@ -7,7 +7,9 @@
   "scripts": {
     "test": "vitest run",
     "test-watch": "vitest",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "eslint": "eslint index.js index.test.ts",
+    "eslint:fix": "eslint index.js index.test.ts --fix"
   },
   "repository": {
     "type": "git",
