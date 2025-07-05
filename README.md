@@ -24,6 +24,22 @@
     2. `npm i eslint-config-shwaka` (バージョンは `package.json` から取得してくれる)
     3. 【不要】バージョンを明示的に指定したいなら `npm i "eslint-config-shwaka@git+https://github.com/shwaka/eslint-config-shwaka#v99.9"` とする
 
+### eslint.config.js
+```js
+import tseslint from "typescript-eslint"
+import { eslintConfigShwakaReact } from "eslint-config-shwaka"
+
+export default tseslint.config([
+  ...eslintConfigShwakaReact,
+  {
+    files: [
+      "**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs",
+      "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts",
+    ],
+  },
+])
+```
+
 ### .eslintrc.js
 ```js
 module.exports = {
