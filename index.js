@@ -159,7 +159,6 @@ export const eslintConfigShwakaStylistic = tseslint.config(
   {
     name: "shwaka/stylistic",
     plugins: {
-      // @ts-ignore
       "@stylistic": stylistic,
     },
     rules: {
@@ -236,7 +235,7 @@ export const eslintConfigShwakaReact = tseslint.config(
   {
     name: "shwaka/react",
     plugins: {
-      // @ts-ignore
+      // @ts-expect-error 何故かエラーが出る
       react: reactPlugin,
       "react-hooks": reactHooksPlugin,
     },
