@@ -8,6 +8,9 @@ import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import stylistic from '@stylistic/eslint-plugin'
 
+const tsFiles = ["ts", "tsx", "mts", "cts"].map((ext) => `**/*.${ext}`)
+const jsFiles = ["js", "jsx", "mjs", "cjs"].map((ext) => `**/*.${ext}`)
+
 const eslintConfigShwakaImportOrder = tseslint.config(
   tseslint.configs.base,
   {
@@ -36,45 +39,12 @@ const eslintConfigShwakaImportOrder = tseslint.config(
   },
 )
 
-export const eslintConfigShwakaBasic = tseslint.config(
-  js.configs.recommended,
-  eslint.configs.recommended,
+const eslintConfigShwakaTseslint = tseslint.config(
   ...tseslint.configs.recommended,
   {
-    name: "shwaka/basic",
-    plugins: {
-      "unused-imports": unusedImports,
-      "import": importPlugin,
-    },
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname, // See note in https://typescript-eslint.io/getting-started/typed-linting/
-      },
-    },
+    name: "shwaka/tseslint-base",
+    files: tsFiles.concat(jsFiles),
     rules: {
-      "no-implicit-coercion": "error",
-      "no-restricted-globals": [
-        "error",
-        ...["open", "close", "location"].map((name) => (
-          { name, message: `Use window.${name} instead.`}
-        )),
-        // event と fdescribe は
-        // 公式ドキュメント (https://eslint.org/docs/latest/rules/no-restricted-globals)
-        // からコピペ
-        { name: "event", message: "Use local parameter instead." },
-        { name: "fdescribe", message: "Use describe instead." },
-        // isFinite と isNaN は
-        // https://zenn.dev/noshiro_piko/articles/take-full-advantage-of-typescript-eslint#%E4%B8%80%E9%83%A8%E3%81%AE%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB%E5%A4%89%E6%95%B0%E3%81%AE%E4%BD%BF%E7%94%A8%E3%82%92%E7%A6%81%E6%AD%A2
-        // からコピペ
-        { "name": "isFinite", "message": "Use Number.isFinite instead." },
-        { "name": "isNaN", "message": "Use Number.isNaN instead." },
-      ],
-      // "semi": ["error", "never"], // use @stylistic/ts
-      "@typescript-eslint/explicit-function-return-type": [
-        2,
-        { "allowExpressions": true }
-      ],
       "@typescript-eslint/no-inferrable-types": "off",
       "@typescript-eslint/no-unused-vars": "off", // provided by "unused-imports"
       // ↓元々はno-unused-expressionsに関する設定は何もしていなかったが，
@@ -82,6 +52,22 @@ export const eslintConfigShwakaBasic = tseslint.config(
       // とりあえず明示的に無効化することにした．
       // 有効化したいときは allowShortCircuit などのオプションを指定する必要があるっぽい？
       "@typescript-eslint/no-unused-expressions": "off",
+    },
+  },
+  {
+    name: "shwaka/tseslint-ts",
+    files: tsFiles,
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname, // See note in https://typescript-eslint.io/getting-started/typed-linting/
+      },
+    },
+    rules: {
+      "@typescript-eslint/explicit-function-return-type": [
+        2,
+        { "allowExpressions": true }
+      ],
       "@typescript-eslint/no-empty-function": ["warn", {
         allow: []
       }],
@@ -104,6 +90,49 @@ export const eslintConfigShwakaBasic = tseslint.config(
       ],
       "@typescript-eslint/switch-exhaustiveness-check": "error",
       "@typescript-eslint/no-floating-promises": "error",
+    },
+  },
+  {
+    name: "shwaka/tseslint-js",
+    files: jsFiles,
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: null,
+      },
+    },
+  },
+)
+
+export const eslintConfigShwakaBasic = tseslint.config(
+  js.configs.recommended,
+  eslint.configs.recommended,
+  ...eslintConfigShwakaTseslint,
+  {
+    name: "shwaka/basic",
+    plugins: {
+      "unused-imports": unusedImports,
+      "import": importPlugin,
+    },
+    rules: {
+      "no-implicit-coercion": "error",
+      "no-restricted-globals": [
+        "error",
+        ...["open", "close", "location"].map((name) => (
+          { name, message: `Use window.${name} instead.`}
+        )),
+        // event と fdescribe は
+        // 公式ドキュメント (https://eslint.org/docs/latest/rules/no-restricted-globals)
+        // からコピペ
+        { name: "event", message: "Use local parameter instead." },
+        { name: "fdescribe", message: "Use describe instead." },
+        // isFinite と isNaN は
+        // https://zenn.dev/noshiro_piko/articles/take-full-advantage-of-typescript-eslint#%E4%B8%80%E9%83%A8%E3%81%AE%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB%E5%A4%89%E6%95%B0%E3%81%AE%E4%BD%BF%E7%94%A8%E3%82%92%E7%A6%81%E6%AD%A2
+        // からコピペ
+        { "name": "isFinite", "message": "Use Number.isFinite instead." },
+        { "name": "isNaN", "message": "Use Number.isNaN instead." },
+      ],
+      // "semi": ["error", "never"], // use @stylistic/ts
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",
