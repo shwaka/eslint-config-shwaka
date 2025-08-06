@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from "react"
+import { useState, type ReactElement, Fragment } from "react"
 
 import reactLogo from "./assets/react.svg"
 import viteLogo from "/vite.svg"
@@ -8,7 +8,7 @@ function App(): ReactElement {
   const [count, setCount] = useState(0)
 
   return (
-    <React.Fragment>
+    <Fragment>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -29,7 +29,7 @@ function App(): ReactElement {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
