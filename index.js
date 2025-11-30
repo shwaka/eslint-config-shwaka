@@ -95,6 +95,7 @@ const eslintConfigShwakaTseslint = tseslint.config(
         {
           fixStyle: "separate-type-imports",
           prefer: "type-imports",
+          disallowTypeAnnotations: true,
         },
       ],
     },

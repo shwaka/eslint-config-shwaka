@@ -1,8 +1,10 @@
 /* eslint-disable unused-imports/no-unused-vars */
-/* eslint-disable unused-imports/no-unused-imports */
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { Foo } from "./Foo"
+
+// 実際に型として利用しないと @typescript-eslint/consistent-type-imports は検出してくれない
+const foo: Foo = { bar: "", baz: 1 }
 
 // eslint-disable-next-line no-var
 var variableDeclaredWithVar = 3
