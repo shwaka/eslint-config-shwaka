@@ -1,4 +1,8 @@
 /* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable unused-imports/no-unused-imports */
+
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+import { Foo } from "./Foo"
 
 // eslint-disable-next-line no-var
 var variableDeclaredWithVar = 3

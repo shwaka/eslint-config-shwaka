@@ -90,6 +90,13 @@ const eslintConfigShwakaTseslint = tseslint.config(
       ],
       "@typescript-eslint/switch-exhaustiveness-check": "error",
       "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          fixStyle: "separate-type-imports",
+          prefer: "type-imports",
+        },
+      ],
     },
   },
   {
