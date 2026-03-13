@@ -1,9 +1,15 @@
 {
-  "name": "eslint-config-shwaka",
-  "version": "1.0.0",
+  "name": "@shwaka/eslint-config-shwaka",
+  "version": "4.0.0",
   "description": "",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "test": "vitest run",
     "test-watch": "vitest",
