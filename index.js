@@ -248,6 +248,7 @@ export const eslintConfigShwakaReact = tseslint.config(
       // @ts-expect-error 何故かエラーが出る
       react: reactPlugin,
       "react-hooks": reactHooksPlugin,
+      "react-you-might-not-need-an-effect": reactYouMightNotNeedAnEffect,
     },
     rules: {
       "react/jsx-fragments": ["error", "element"], // <> ではなく <Fragment> を使う
