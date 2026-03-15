@@ -24,6 +24,9 @@
     "target": "ES2015",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    // ビルド時に下記のエラーが出るのでskipLibCheckを追加．
+    // node_modules/vitest/node_modules/vite/types/importGlob.d.ts:42:11 - error TS2304: Cannot find name 'Worker'.
+    "skipLibCheck": true
   }
 }
