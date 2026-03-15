@@ -12,6 +12,8 @@ TARGETS=$(ls "$TEST_DIR")
 
 # Run vitest
 cd "$ROOT_DIR"
+npm run build
+npm run eslint
 npm run test
 
 for target in $TARGETS; do

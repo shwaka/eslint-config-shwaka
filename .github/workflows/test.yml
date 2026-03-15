@@ -17,6 +17,13 @@ jobs:
     - name: Run npm ci in the root
       run: npm ci
       working-directory: .
+    - name: Build in the root
+      # necessary to run eslint (eslint.config.js imports dist/index.jsn)
+      run: npm run build
+      working-directory: .
+    - name: Run eslint in the root
+      run: npm run eslint
+      working-directory: .
     - name: Run vitest
       run: npm run test
 
