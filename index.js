@@ -5,8 +5,10 @@ import stylistic from "@stylistic/eslint-plugin"
 import importPlugin from "eslint-plugin-import"
 import reactPlugin from "eslint-plugin-react"
 import reactHooksPlugin from "eslint-plugin-react-hooks"
+import reactYouMightNotNeedAnEffect from "eslint-plugin-react-you-might-not-need-an-effect"
 import unusedImports from "eslint-plugin-unused-imports"
 import tseslint from "typescript-eslint"
+
 
 const tsFiles = ["ts", "tsx", "mts", "cts"].map((ext) => `**/*.${ext}`)
 const jsFiles = ["js", "jsx", "mjs", "cjs"].map((ext) => `**/*.${ext}`)
@@ -252,6 +254,7 @@ export const eslintConfigShwakaReact = tseslint.config(
       "react/jsx-no-leaked-render": "off", // @typescript-eslint/strict-boolean-expressions があれば十分
       "react/jsx-key": "error",
       ...reactHooksPlugin.configs.recommended.rules,
+      ...reactYouMightNotNeedAnEffect.configs.recommended.rules,
     },
     settings: {
       react: {
