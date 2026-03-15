@@ -1,6 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
 
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 import { Fragment } from "react/jsx-runtime"
 
@@ -76,4 +76,18 @@ function JsxKey(): JSX.Element {
       ))}
     </div>
   )
+}
+
+function NoDerivedState(): JSX.Element {
+  const [firstName, _setFirstName] = useState("Taylor")
+  const [lastName, _setLastName] = useState("Swift")
+
+  const [_fullName, setFullName] = useState("")
+  useEffect(() => {
+    // ❌ Avoid storing derived state. Compute "fullName" directly during render, optionally with `useMemo` if it"s expensive.
+    // eslint-disable-next-line react-you-might-not-need-an-effect/no-derived-state
+    setFullName(firstName + " " + lastName)
+  }, [firstName, lastName])
+
+  return (<div></div>)
 }
