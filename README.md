@@ -1,7 +1,23 @@
 `.eslintrc` を複数のプロジェクトで使い回したいので作ってみた．
 
 ## 使い方
-### package.json
+### Install
+1. Create Personal Access Token in GitHub
+2. Write the following in (somewhere imported by) `.zshrc`.
+   ```bash
+   export NODE_AUTH_TOKEN="your_token_here"
+   ```
+3. Write the following in `.npmrc` (at `~/.npmrc` or project directory)
+   ```
+   @shwaka:registry=https://npm.pkg.github.com
+   //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+   ```
+4. Run
+   ```bash
+   npm i @shwaka/eslint-config-shwaka
+    ```
+
+### (古い情報) package.json
 ```js
 {
   "scripts": {
@@ -60,11 +76,9 @@ npm link eslint-config-shwaka
 `npm install` すれば link 状態は解除される．
 
 ## 更新方法
-単に git で tag をつけて push すれば良いだけ:
-```bash
-git tag v99.9
-git push --tags
-```
+1. Update `"version"` in `package.json`
+2. Commit it and run `git tag v9.99.99` (Note: tag MUST start with `v`)
+3. `git push` and `git push --tags`
 
 ## テスト
 [ESLint の設定を ESLint でテストする](https://studist.tech/test-eslint-config-by-eslint-8d03870a23d9) を参考にして `tests/` を作った．
