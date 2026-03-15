@@ -19,8 +19,8 @@
     "test": "vitest run",
     "test-watch": "vitest",
     "tsc": "tsc",
-    "eslint": "eslint index.js index.test.ts",
-    "eslint:fix": "eslint index.js index.test.ts --fix"
+    "eslint": "eslint src",
+    "eslint:fix": "eslint src --fix"
   },
   "repository": {
     "type": "git",
