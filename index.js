@@ -9,7 +9,6 @@ import reactYouMightNotNeedAnEffect from "eslint-plugin-react-you-might-not-need
 import unusedImports from "eslint-plugin-unused-imports"
 import tseslint from "typescript-eslint"
 
-
 const tsFiles = ["ts", "tsx", "mts", "cts"].map((ext) => `**/*.${ext}`)
 const jsFiles = ["js", "jsx", "mjs", "cjs"].map((ext) => `**/*.${ext}`)
 
