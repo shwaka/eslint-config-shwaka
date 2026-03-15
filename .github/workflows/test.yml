@@ -31,6 +31,9 @@ jobs:
     - name: Run npm ci in the root
       run: npm ci
       working-directory: .
+    - name: Build in the root
+      run: npm run build
+      working-directory: .
     - name: Run npm ci in a test
       run: npm ci
       working-directory: test-projects/${{ matrix.name }}
