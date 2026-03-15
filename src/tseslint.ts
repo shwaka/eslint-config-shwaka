@@ -1,5 +1,5 @@
 import tseslint from "typescript-eslint"
-import { tsFiles, jsFiles } from "./files"
+import { tsFiles, jsFiles } from "./files.js"
 
 export const eslintConfigShwakaTseslint = tseslint.config(
   ...tseslint.configs.recommended,

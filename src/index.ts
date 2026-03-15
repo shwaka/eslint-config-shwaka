@@ -1,9 +1,9 @@
-export { eslintConfigShwakaBasic } from "./basic"
-export { eslintConfigShwakaStylistic } from "./stylistic"
-export { eslintConfigShwakaOnsave } from "./onsave"
-export { eslintConfigShwakaReact } from "./react"
+export { eslintConfigShwakaBasic } from "./basic.js"
+export { eslintConfigShwakaStylistic } from "./stylistic.js"
+export { eslintConfigShwakaOnsave } from "./onsave.js"
+export { eslintConfigShwakaReact } from "./react.js"
 
-import { eslintConfigShwakaReact } from "./react" // 下で使うのでimportも必要
+import { eslintConfigShwakaReact } from "./react.js" // 下で使うのでimportも必要
 
 export const eslintConfigShwaka = eslintConfigShwakaReact
 

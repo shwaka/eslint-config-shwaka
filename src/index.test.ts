@@ -1,7 +1,7 @@
 import type { FlatConfig } from "@typescript-eslint/utils/ts-eslint"
 import { describe, it, expect } from "vitest"
 
-import { eslintConfigShwakaBasic, eslintConfigShwakaReact, eslintConfigShwakaOnsave, eslintConfigShwakaStylistic } from "."
+import { eslintConfigShwakaBasic, eslintConfigShwakaReact, eslintConfigShwakaOnsave, eslintConfigShwakaStylistic } from "./index.js"
 
 function getNames(configArray: FlatConfig.ConfigArray): (string | undefined)[] {
   return configArray.map((config) => config.name)

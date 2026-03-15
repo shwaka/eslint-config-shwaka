@@ -3,7 +3,7 @@ import eslint from "@eslint/js"
 import importPlugin from "eslint-plugin-import"
 import unusedImports from "eslint-plugin-unused-imports"
 import tseslint from "typescript-eslint"
-import { eslintConfigShwakaTseslint } from "./tseslint"
+import { eslintConfigShwakaTseslint } from "./tseslint.js"
 
 export const eslintConfigShwakaBasic = tseslint.config(
   js.configs.recommended,
