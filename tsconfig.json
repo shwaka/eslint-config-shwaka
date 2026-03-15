@@ -1,6 +1,6 @@
 // https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html
 {
-  "include": ["index.js", "index.test.ts"],
+  "include": ["src/**/*.ts"],
   "compilerOptions": {
     // Tells TypeScript to read JS files, as
     // normally they are ignored as source files
@@ -9,11 +9,11 @@
     "declaration": true,
     // This compiler run should
     // only output d.ts files
-    "emitDeclarationOnly": true,
+    // "emitDeclarationOnly": true,
     // Types should go into this directory.
     // Removing this would place the .d.ts files
     // next to the .js files
-    // "outDir": "dist",
+    "outDir": "dist",
     // go to js file when using IDE functions like
     // "Go to Definition" in VSCode
     "declarationMap": false, // いらない気がするので false にした
