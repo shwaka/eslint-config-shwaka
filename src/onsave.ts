@@ -1,6 +1,7 @@
 import tseslint from "typescript-eslint"
-import { eslintConfigShwakaStylistic } from "./stylistic.js"
+
 import { eslintConfigShwakaImportOrder } from "./importOrder.js"
+import { eslintConfigShwakaStylistic } from "./stylistic.js"
 
 export const eslintConfigShwakaOnsave = tseslint.config(
   tseslint.configs.base,

@@ -3,9 +3,9 @@ import reactHooksPlugin from "eslint-plugin-react-hooks"
 import reactYouMightNotNeedAnEffect from "eslint-plugin-react-you-might-not-need-an-effect"
 import tseslint from "typescript-eslint"
 
-import { eslintConfigShwakaStylistic } from "./stylistic.js"
-import { eslintConfigShwakaImportOrder } from "./importOrder.js"
 import { eslintConfigShwakaBasic } from "./basic.js"
+import { eslintConfigShwakaImportOrder } from "./importOrder.js"
+import { eslintConfigShwakaStylistic } from "./stylistic.js"
 
 export const eslintConfigShwakaReact = tseslint.config(
   ...eslintConfigShwakaBasic,
