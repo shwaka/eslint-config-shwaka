@@ -1,9 +1,10 @@
 // @ts-check
-import tseslint from "typescript-eslint"
+import { defineConfig } from "eslint/config"
+
 import { eslintConfigShwakaReact } from "./dist/index.js"
 import { noNumericRuleLevel } from "./no-numeric-rule-level.js"
 
-export default tseslint.config(
+export default defineConfig(
   ...eslintConfigShwakaReact,
   {
     files: ["**/*.js", "**/*.ts"],
