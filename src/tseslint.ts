@@ -28,7 +28,7 @@ export const eslintConfigShwakaTseslint = tseslint.config(
     },
     rules: {
       "@typescript-eslint/explicit-function-return-type": [
-        2,
+        "error",
         { allowExpressions: true }
       ],
       "@typescript-eslint/no-empty-function": ["warn", {

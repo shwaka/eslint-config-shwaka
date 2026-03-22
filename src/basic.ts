@@ -40,9 +40,9 @@ export const eslintConfigShwakaBasic = tseslint.config(
         "warn",
         { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" }
       ],
-      "sort-imports": 0,
-      "import/named": 0, // Language not found in 'prism-react-renderer'
-      "import/no-unresolved": 0, // ちゃんと設定できてないせいか大量に出てきてしまう
+      "sort-imports": "off",
+      "import/named": "off", // Language not found in 'prism-react-renderer'
+      "import/no-unresolved": "off", // ちゃんと設定できてないせいか大量に出てきてしまう
     }
   }
 )
