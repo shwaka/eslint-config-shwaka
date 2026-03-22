@@ -23,7 +23,11 @@
     "test-watch": "vitest",
     "tsc": "tsc",
     "eslint": "eslint src",
-    "eslint:fix": "eslint src --fix"
+    "eslint:fix": "eslint src --fix",
+    "eslint:onsave": "eslint --config eslint-onsave.config.js --fix",
+    "eslint:watch": "chokidar 'src/**/*' --initial --command 'clear && npm run eslint'",
+    "lc": "npm run eslint",
+    "lf": "npm run eslint:fix"
   },
   "repository": {
     "type": "git",
