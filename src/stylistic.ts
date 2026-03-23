@@ -1,7 +1,8 @@
 import stylistic from "@stylistic/eslint-plugin"
+import { defineConfig } from "eslint/config"
 import tseslint from "typescript-eslint"
 
-export const eslintConfigShwakaStylistic = tseslint.config(
+export const eslintConfigShwakaStylistic = defineConfig(
   tseslint.configs.base,
   stylistic.configs.customize({
     indent: 2,

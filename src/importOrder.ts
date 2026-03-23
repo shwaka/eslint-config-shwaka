@@ -1,7 +1,8 @@
+import { defineConfig } from "eslint/config"
 import importPlugin from "eslint-plugin-import"
 import tseslint from "typescript-eslint"
 
-export const eslintConfigShwakaImportOrder = tseslint.config(
+export const eslintConfigShwakaImportOrder = defineConfig(
   tseslint.configs.base,
   {
     name: "shwaka/import-order",

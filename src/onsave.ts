@@ -1,9 +1,10 @@
+import { defineConfig } from "eslint/config"
 import tseslint from "typescript-eslint"
 
 import { eslintConfigShwakaImportOrder } from "./importOrder.js"
 import { eslintConfigShwakaStylistic } from "./stylistic.js"
 
-export const eslintConfigShwakaOnsave = tseslint.config(
+export const eslintConfigShwakaOnsave = defineConfig(
   tseslint.configs.base,
   ...eslintConfigShwakaStylistic,
   ...eslintConfigShwakaImportOrder,

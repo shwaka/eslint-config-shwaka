@@ -1,13 +1,13 @@
+import { defineConfig } from "eslint/config"
 import reactPlugin from "eslint-plugin-react"
 import reactHooksPlugin from "eslint-plugin-react-hooks"
 import reactYouMightNotNeedAnEffect from "eslint-plugin-react-you-might-not-need-an-effect"
-import tseslint from "typescript-eslint"
 
 import { eslintConfigShwakaBasic } from "./basic.js"
 import { eslintConfigShwakaImportOrder } from "./importOrder.js"
 import { eslintConfigShwakaStylistic } from "./stylistic.js"
 
-export const eslintConfigShwakaReact = tseslint.config(
+export const eslintConfigShwakaReact = defineConfig(
   ...eslintConfigShwakaBasic,
   ...eslintConfigShwakaStylistic,
   ...eslintConfigShwakaImportOrder,

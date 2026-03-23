@@ -1,12 +1,12 @@
 import js from "@eslint/js"
 import eslint from "@eslint/js"
+import { defineConfig } from "eslint/config"
 import importPlugin from "eslint-plugin-import"
 import unusedImports from "eslint-plugin-unused-imports"
-import tseslint from "typescript-eslint"
 
 import { eslintConfigShwakaTseslint } from "./tseslint.js"
 
-export const eslintConfigShwakaBasic = tseslint.config(
+export const eslintConfigShwakaBasic = defineConfig(
   js.configs.recommended,
   eslint.configs.recommended,
   ...eslintConfigShwakaTseslint,
