@@ -1,5 +1,75 @@
 // @ts-check
 
+/**
+ * @param {unknown} value
+ * @returns {value is 0 | 1 | 2}
+ */
+function isNumericSeverity(value) {
+  return value === 0 || value === 1 || value === 2
+}
+
+/**
+ * @param {0 | 1 | 2} value
+ * @returns {string}
+ */
+function toSeverity(value) {
+  switch (value) {
+    case 0:
+      return "\"off\""
+    case 1:
+      return "\"warn\""
+    case 2:
+      return "\"error\""
+  }
+}
+
+/**
+ * @param {import("estree").Property["value"]} value
+ * @returns {{ node: import("estree").Literal, severity: 0 | 1 | 2 } | null}
+ */
+function getNumericSeverityTarget(value) {
+  if (value.type === "Literal" && isNumericSeverity(value.value)) {
+    return {
+      node: value,
+      severity: value.value,
+    }
+  }
+
+  if (value.type === "ArrayExpression") {
+    const first = value.elements[0]
+    if (
+      first !== null &&
+      first !== undefined &&
+      first.type === "Literal" &&
+      isNumericSeverity(first.value)
+    ) {
+      return {
+        node: first,
+        severity: first.value,
+      }
+    }
+  }
+
+  return null
+}
+
+/**
+ * @param {import("eslint").Rule.RuleContext} context
+ * @param {import("estree").Literal} node
+ * @param {0 | 1 | 2} severity
+ * @returns {void}
+ */
+function reportNumericSeverity(context, node, severity) {
+  context.report({
+    node,
+    messageId: "unexpectedNumeric",
+    data: { value: String(severity) },
+    fix(fixer) {
+      return fixer.replaceText(node, toSeverity(severity))
+    },
+  })
+}
+
 /** @type {import("eslint").Rule.RuleModule} */
 export const noNumericRuleLevel = {
   meta: {
@@ -15,21 +85,6 @@ export const noNumericRuleLevel = {
     },
   },
   create(context) {
-    /**
-     * @param {0 | 1 | 2} value
-     * @returns {string}
-     */
-    function toSeverity(value) {
-      switch (value) {
-        case 0:
-          return "\"off\""
-        case 1:
-          return "\"warn\""
-        case 2:
-          return "\"error\""
-      }
-    }
-
     return {
       Property(node) {
         if (node.type !== "Property") {
@@ -47,47 +102,12 @@ export const noNumericRuleLevel = {
             continue
           }
 
-          const value = ruleProperty.value
-
-          if (
-            value.type === "Literal" &&
-            typeof value.value === "number" &&
-            (value.value === 0 || value.value === 1 || value.value === 2)
-          ) {
-            const severity = value.value
-
-            context.report({
-              node: value,
-              messageId: "unexpectedNumeric",
-              data: { value: String(severity) },
-              fix(fixer) {
-                return fixer.replaceText(value, toSeverity(severity))
-              },
-            })
+          const target = getNumericSeverityTarget(ruleProperty.value)
+          if (target === null) {
             continue
           }
 
-          if (value.type === "ArrayExpression") {
-            const first = value.elements[0]
-            if (
-              first !== null &&
-              first !== undefined &&
-              first.type === "Literal" &&
-              typeof first.value === "number" &&
-              (first.value === 0 || first.value === 1 || first.value === 2)
-            ) {
-              const severity = first.value
-
-              context.report({
-                node: first,
-                messageId: "unexpectedNumeric",
-                data: { value: String(severity) },
-                fix(fixer) {
-                  return fixer.replaceText(first, toSeverity(severity))
-                },
-              })
-            }
-          }
+          reportNumericSeverity(context, target.node, target.severity)
         }
       },
     }
