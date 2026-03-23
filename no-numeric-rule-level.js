@@ -1,3 +1,5 @@
+// @ts-check
+
 /** @type {import("eslint").Rule.RuleModule} */
 export const noNumericRuleLevel = {
   meta: {
