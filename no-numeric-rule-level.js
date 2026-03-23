@@ -93,3 +93,17 @@ export const noNumericRuleLevel = {
     }
   },
 }
+
+/** @type {import("eslint").Linter.Config} */
+export const noNumericRuleLevelConfig = {
+  plugins: {
+    local: {
+      rules: {
+        "no-numeric-rule-level": noNumericRuleLevel,
+      },
+    },
+  },
+  rules: {
+    "local/no-numeric-rule-level": "error",
+  },
+}

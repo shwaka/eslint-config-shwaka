@@ -2,7 +2,7 @@
 import { defineConfig } from "eslint/config"
 
 import { eslintConfigShwakaOnsave } from "./dist/index.js"
-import { noNumericRuleLevel } from "./no-numeric-rule-level.js"
+import { noNumericRuleLevelConfig } from "./no-numeric-rule-level.js"
 
 export default defineConfig(
   ...eslintConfigShwakaOnsave,
@@ -12,16 +12,5 @@ export default defineConfig(
       "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts",
     ],
   },
-  {
-    plugins: {
-      local: {
-        rules: {
-          "no-numeric-rule-level": noNumericRuleLevel,
-        },
-      },
-    },
-    rules: {
-      "local/no-numeric-rule-level": "error",
-    },
-  },
+  noNumericRuleLevelConfig,
 )
