@@ -2,7 +2,7 @@
 import { defineConfig } from "eslint/config"
 
 import { eslintConfigShwakaReact } from "./dist/index.js"
-import { noNumericRuleLevelConfig } from "./no-numeric-rule-level.js"
+import { noNumericRuleLevelConfig } from "./tools/no-numeric-rule-level.js"
 
 export default defineConfig(
   ...eslintConfigShwakaReact,
