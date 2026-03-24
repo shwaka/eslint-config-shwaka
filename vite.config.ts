@@ -4,6 +4,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "node",
-    exclude: ["node_modules", "test-projects", "template", "dist"]
+    exclude: ["node_modules", "test-projects", "template", "dist", ".commitlint/node_modules"]
   }
 })
