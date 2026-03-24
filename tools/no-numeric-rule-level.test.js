@@ -8,8 +8,8 @@ const ruleTester = new RuleTester()
 
 ruleTester.run("no-numeric-rule-level", noNumericRuleLevel, {
   valid: [
-    // 文字列はOK
     {
+      // 文字列はOK
       code: `
         export default [{
           rules: {
@@ -18,8 +18,8 @@ ruleTester.run("no-numeric-rule-level", noNumericRuleLevel, {
         }]
       `,
     },
-    // 配列形式でも文字列ならOK
     {
+      // 配列形式でも文字列ならOK
       code: `
         export default [{
           rules: {
@@ -28,8 +28,8 @@ ruleTester.run("no-numeric-rule-level", noNumericRuleLevel, {
         }]
       `,
     },
-    // rules 以外は無視
     {
+      // rules 以外は無視
       code: `
         const obj = {
           something: {
@@ -38,8 +38,8 @@ ruleTester.run("no-numeric-rule-level", noNumericRuleLevel, {
         }
       `,
     },
-    // 数値でも 0/1/2 以外は無視（仕様に依存）
     {
+      // (不自然だけど仕様) 数値でも 0/1/2 以外は無視
       code: `
         export default [{
           rules: {
@@ -48,11 +48,20 @@ ruleTester.run("no-numeric-rule-level", noNumericRuleLevel, {
         }]
       `,
     },
+    {
+      // (不自然だけど仕様) 別のオブジェクトを経由した場合は無視
+      code: `
+        const rules = {
+          "no-console": 2,
+        }
+        export default [{ ...rules }]
+      `,
+    },
   ],
 
   invalid: [
-    // 単体 number
     {
+      // 単体 number
       code: `
         export default [{
           rules: {
@@ -69,9 +78,8 @@ ruleTester.run("no-numeric-rule-level", noNumericRuleLevel, {
       `,
       errors: [{ messageId: "unexpectedNumeric" }],
     },
-
-    // 配列の先頭
     {
+      // 配列の先頭
       code: `
         export default [{
           rules: {
@@ -88,9 +96,8 @@ ruleTester.run("no-numeric-rule-level", noNumericRuleLevel, {
       `,
       errors: [{ messageId: "unexpectedNumeric" }],
     },
-
-    // warn / off も確認
     {
+      // warn / off も確認
       code: `
         export default [{
           rules: {
@@ -111,6 +118,36 @@ ruleTester.run("no-numeric-rule-level", noNumericRuleLevel, {
         { messageId: "unexpectedNumeric" },
         { messageId: "unexpectedNumeric" },
       ],
+    },
+    {
+      // (不自然だけど仕様) 深いオブジェクトでも修正対象
+      code: `
+        export default [{
+          foo: {
+            bar: {
+              baz: {
+                rules: {
+                  "no-console": 2,
+                }
+              }
+            }
+          }
+        }]
+      `,
+      output: `
+        export default [{
+          foo: {
+            bar: {
+              baz: {
+                rules: {
+                  "no-console": "error",
+                }
+              }
+            }
+          }
+        }]
+      `,
+      errors: [{ messageId: "unexpectedNumeric" }],
     },
   ],
 })
