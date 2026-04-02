@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: volta-cli/action@v3
+    - uses: jdx/mise-action@v3
     - name: Run npm ci in the root
       run: npm ci
       working-directory: .

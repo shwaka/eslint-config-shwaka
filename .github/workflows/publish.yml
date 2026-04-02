@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v3
+      - uses: jdx/mise-action@v3
       - name: Configure npm for GitHub Packages
         run: |
           cat > ~/.npmrc <<'EOF'
