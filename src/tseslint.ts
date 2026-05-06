@@ -57,7 +57,7 @@ export const eslintConfigShwakaTseslint = defineConfig(
       "@typescript-eslint/consistent-type-imports": [
         "error",
         {
-          fixStyle: "separate-type-imports",
+          fixStyle: "inline-type-imports",
           prefer: "type-imports",
           disallowTypeAnnotations: true,
         },
