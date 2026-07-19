@@ -1,5 +1,6 @@
 import { defineConfig } from "eslint/config"
 import importPlugin from "eslint-plugin-import"
+import unicornPlugin from "eslint-plugin-unicorn"
 import tseslint from "typescript-eslint"
 
 export const eslintConfigShwakaImportOrder = defineConfig(
@@ -28,4 +29,13 @@ export const eslintConfigShwakaImportOrder = defineConfig(
       }],
     },
   },
+  {
+    name: "shwaka/import-unicorn",
+    plugins: {
+      unicorn: unicornPlugin,
+    },
+    rules: {
+      "unicorn/prefer-node-protocol": "error",
+    }
+  }
 )
