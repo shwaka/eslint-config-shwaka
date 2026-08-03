@@ -14,7 +14,7 @@
    ```
 4. Run
    ```bash
-   npm i @shwaka/eslint-config-shwaka
+   npm i -D @shwaka/eslint-config-shwaka
     ```
 
 ### (古い情報) package.json
@@ -42,6 +42,7 @@
 
 ### eslint.config.js
 ```js
+// @ts-check
 import tseslint from "typescript-eslint"
 import { eslintConfigShwakaReact } from "eslint-config-shwaka"
 
