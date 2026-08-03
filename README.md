@@ -17,6 +17,18 @@
    npm i -D @shwaka/eslint-config-shwaka
     ```
 
+### GitHub Actions
+```yaml
+jobs:
+  build:
+    steps:
+      # checkout, setup node, etc...
+      - run: npm ci
+        working-directory: docusaurus
+        env:
+          NODE_AUTH_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+```
+
 ### (古い情報) package.json
 ```js
 {
