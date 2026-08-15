@@ -68,6 +68,12 @@ export const eslintConfigShwakaStylistic = defineConfig(
       "@stylistic/max-statements-per-line": "off", // 暫定的に
       "@stylistic/comma-dangle": ["error", "only-multiline"],
       "@stylistic/no-extra-parens": "off", // 視認性のために追加したい場合がある
+      "@stylistic/object-curly-newline": [
+        "error",
+        {
+          ImportDeclaration: "never", // import 内で改行はしない
+        },
+      ],
     },
   },
 )

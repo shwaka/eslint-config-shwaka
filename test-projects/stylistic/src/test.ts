@@ -1,6 +1,15 @@
 // eslintConfigShwakaStylistic does NOT extend eslintConfigShwakaBasic
 // /* eslint-disable unused-imports/no-unused-vars */
 
+// importは改行なしで書く
+import { equal, deepEqual } from "node:assert"
+// eslint-disable-next-line @stylistic/object-curly-newline
+import {
+  readFile,
+  readFileSync,
+  // eslint-disable-next-line @stylistic/object-curly-newline
+} from "node:fs"
+
 // eslint-disable-next-line @stylistic/semi
 const lineWithSemi = 5;
 
