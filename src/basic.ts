@@ -4,9 +4,11 @@ import { defineConfig } from "eslint/config"
 import importPlugin from "eslint-plugin-import"
 import unusedImports from "eslint-plugin-unused-imports"
 
+import { eslintConfigShwakaIgnores } from "./ignores.js"
 import { eslintConfigShwakaTseslint } from "./tseslint.js"
 
 export const eslintConfigShwakaBasic = defineConfig(
+  eslintConfigShwakaIgnores,
   js.configs.recommended,
   eslint.configs.recommended,
   ...eslintConfigShwakaTseslint,
